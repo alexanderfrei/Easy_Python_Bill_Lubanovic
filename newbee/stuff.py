@@ -20,39 +20,39 @@ print(letter_count)
 some_set = {number for number in [1,2,3,1,4,5,2]}
 print(some_set)
 
-#генератор
-#генераторы нужны для создания огромных последовательностей без их полной загрузки в память
-#генератор можно создать включением или функцией
-#генератор срабатывает лишь однажды
 
-number_gen = (number for number in range(1,1000)) # круглые () скобки
-print(type(number_gen))
-for num in number_gen:
-    if num> 997: print(num)
-number_gen = (number for number in range(1,1000)) # повторяем создание генератора
-number_list = list(number_gen)
-print(number_list)
-number_list = list(number_gen) # пустой лист, т.к. генератор уже сработал раньше
-print(number_list)
+# пространства имен
+# global
+# словари пространств имен: globals() и locals()
 
-#Функции
-#Удобочитаемость имеет значение
+print('-- scope --')
+animal = 'fruitbat'
 
-def get_arg(*args,**kwargs):
-    """
-    функция теста аргументов python
-    :param args: int
-    :param kwargs: str = str
-    :return:
-    """
-    try:
-        print('1:', args[0]) # 1ый аргумент
-        print('Сумма:', sum(args)) # сумма аргументов
-        print('Именованные аргументы: ', kwargs)
-        [print(k) for k in kwargs.items()]
-    except:
-        pass
+def print_global():
+    print('inside print_global: ', animal)
+print('global:', animal)
+print_global()
 
-get_arg(1,2,3,4, red_pill = 'reality', blue_pill = 'illusion')
+def change_global():
+    global animal # иначе создастся локальная переменная
+    animal = 'wombat'
+    local_animal = 'raccoon'
+    print('local variables:', locals())
+    print('inside change_global: ', animal)
 
+change_global()
+print('global:', animal)
+print('global variables:', globals())
 
+# создание собственных исключений
+# исключение - класс
+
+class UppercaseException(Exception):
+    pass
+
+words = ['eeenie', 'meenie', 'miny', 'MO']
+for word in words:
+    if word.isupper():
+        raise UppercaseException(word)
+
+print("lalala")
