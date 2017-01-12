@@ -9,4 +9,3 @@ def unicode_info(un_symbol):
 
 snowball = '\u2603'
 unicode_info(snowball)
-

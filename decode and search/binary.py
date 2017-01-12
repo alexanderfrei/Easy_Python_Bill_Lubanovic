@@ -18,3 +18,9 @@ else:
     print('Not a valid PNG')
 
 print( struct.pack('>L', 777) )
+
+# hex to dec
+print(int('ff', 16))
+print(int(b'ff', 16))
+print(int(b'0xff', 16))
+print(int(b'\xff'.hex(), 16))
