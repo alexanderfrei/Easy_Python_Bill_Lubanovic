@@ -56,5 +56,3 @@ print(type(json.dumps(now, cls=DTEncoder)))
 # print(type(menu_loaded))
 
 # menu_json = json.dumps(menu)
-
-# YAML TODO
