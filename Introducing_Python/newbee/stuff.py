@@ -47,7 +47,10 @@ print('global variables:', globals())
 # обращение к модулям пакета
 
 print("--- source & modules ---")
-from sources import daily, weekly
+from sources import weekly
+
+from Introducing_Python.sources import daily
+
 print("Daily forecast:", daily.forecast())
 print("Weekly forecast:")
 for number, outlook in enumerate(weekly.forecast(), 1):
