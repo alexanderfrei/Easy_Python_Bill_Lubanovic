@@ -2,8 +2,7 @@
 data = "2 15\n0 0 1 0 0 0 2 1 2 3 0 0 0 2 1".split('\n')
 n_cores = int(data[0].split()[0])
 n_tasks = int(data[0].split()[1])
-tasks = [int(v) for v in data[1].strip().split()]
-
+tasks = map(int, data[1].strip().split())
 
 ################################################################################################
 # PriorityQueue

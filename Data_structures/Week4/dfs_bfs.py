@@ -39,7 +39,7 @@ def build_tree(node, parent=None):
 
 build_tree(tree.root, None)
 
-# pre-order read
+# pre-order dfs
 def pre_order(node):
     if not node: return
     print(node.value, end=' ')
@@ -47,23 +47,37 @@ def pre_order(node):
     pre_order(node.right)
 
 
-# in-order read
+# in-order dfs
 def in_order(node):
     if not node: return
     in_order(node.left)
     print(node.value, end=' ')
     in_order(node.right)
 
-# post-order read
+# post-order dfs
 def post_order(node):
     if not node: return
     post_order(node.left)
     post_order(node.right)
     print(node.value, end=' ')
 
+# bfs
+def bfs(node):
+    from collections import deque
+    queue = deque()
+    queue.append(node)
+    while queue:
+        tempNode = queue.pop()
+        print(tempNode.value, end=' ')
+        if tempNode.left:
+            queue.appendleft(tempNode.left)
+        if tempNode.right:
+            queue.appendleft(tempNode.right)
+
 in_order(tree.root)
 print()
 pre_order(tree.root)
 print()
 post_order(tree.root)
-
+print()
+bfs(tree.root)
