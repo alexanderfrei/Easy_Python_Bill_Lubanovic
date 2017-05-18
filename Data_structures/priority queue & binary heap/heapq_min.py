@@ -25,7 +25,7 @@ class MinHeap:
         self.swap_it += 1
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
-    def sft_down(self, i):
+    def sift_down(self, i):
         min_index, l, r = i, 2*i+1, 2*i+2
         if l <= self.size and self.heap[l] < self.heap[i]:
             min_index = l
@@ -33,17 +33,20 @@ class MinHeap:
             min_index = r
         if min_index != i:
             self.swap(i, min_index)
-            self.sft_down(min_index)
+            self.sift_down(min_index)
 
-    def build_heap(self):
+    # heap methods
+    def heapify(self):
         for i in range(self.size//2, -1, -1):
-            self.sft_down(i)
+            self.sift_down(i)
 
     # priority queue methods
     def get_min(self):
         return self.heap[0]
 
+
+
 h = MinHeap(data, size)
-h.build_heap()
+h.heapify()
 print(h.swap_it, '\n'.join(h.print), sep='\n')
 
